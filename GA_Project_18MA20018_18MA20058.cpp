@@ -15,7 +15,7 @@ struct chromosome{
 	int ans[N][N];
 	int helprow[N][N],helpcol[N][N],helpsubgrid[N][N];
 	double fitness;
-}c[POP],best,parent[POP],coparent[POP],newgen[POP],ind1,ind2,offspring,arr_restart[POP];  //SOME ERROR MIGHT HAPPEN DUE TO THIS GLOBAL DECLARATION OF STRUCT VARIABLES! BEWARE
+}c[POP],best,parent[POP],coparent[POP],newgen[POP],ind1,ind2,offspring,arr_restart[POP];  
 
 bool compare(chromosome a, chromosome b)// Will be used to sort according to fitness
 {
@@ -449,13 +449,13 @@ void generate_pop()
 		  	  	else
 		  	  	  {
 		  	  	  	x=1+rand()%N;
-		  	  	  	if(c[k].helprow[i][x-1]==0 && possible[i][j][x-1]==1) //&& possible[i][j][x-1]==1)
+		  	  	  	if(c[k].helprow[i][x-1]==0 && possible[i][j][x-1]==1)
 		  	  	  	  {
 						c[k].ans[i][j]=x;
 		  	  	  	  	c[k].helprow[i][x-1]+=1;
 		  	  	  	  }
 		  	  	  	    
-		  	  	  	else if(c[k].helprow[i][x-1]!=0 || possible[i][j][x-1]==0) //|| possible[i][j][x-1]==0)
+		  	  	  	else if(c[k].helprow[i][x-1]!=0 || possible[i][j][x-1]==0)
 		  	  	  	  {
 		  	  	  	  	x=1+rand()%N;
 		  	  	  	    while(1)                        //Ensuring that helprow array for any chromosome is an all 1s array
@@ -743,7 +743,8 @@ int main()
 }
 
 /*
-
+Sample Sudokus for input 
+ 
 0 0 7 0 0 0 9 0 8
 0 3 0 1 7 0 0 0 4
 0 0 0 0 0 6 0 0 0
@@ -794,4 +795,3 @@ int main()
 2 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 1
 */
-//1832EE1832 EE1841
